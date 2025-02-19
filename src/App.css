@@ -12,3 +12,9 @@ body{
     border-radius: 8px;
     box-shadow: none;
 }
+p{
+    font-size: 16px;
+    line-height: 1.6;
+    color: aqua;
+    margin: 0 20px;
+}
