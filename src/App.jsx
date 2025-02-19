@@ -21,7 +21,9 @@ function App() {
   const divisionMe=()=>{
     setCount(x/2)
   }
-  
+  const percentageME=()=>{
+    setCount(x%2)
+  }
   return (
     <> 
 
@@ -33,7 +35,7 @@ The value of x is {x}
 
 <button onClick={()=>multipleMe()}>multipleMe me </button>
 <button onClick={()=>divisionMe()}>divisionMe123</button>
-
+<button onClick={()=>percentageME()}>percentageME</button>
 
     </>
   );
