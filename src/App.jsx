@@ -24,6 +24,9 @@ function App() {
   const percentageME=()=>{
     setCount(x%2)
   }
+  const multiDiv=()=>{
+    setCount(x*%2)
+  }
   return (
     <> 
 
