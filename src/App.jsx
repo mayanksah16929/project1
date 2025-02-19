@@ -1,49 +1,42 @@
-import "./App.css";
-// useState is Hook
-import {useState} from "react";
-
+import React, { useState } from 'react';
+import './App.css';
 
 function App() {
+  // State for storing dice roll values
+  const [dice1, setDice1] = useState(null);
+  const [dice2, setDice2] = useState(null);
+  const [message, setMessage] = useState('');
 
-  const [x,setCount]=useState(0);
+  // Function to simulate rolling the dice
+  const rollDice = () => {
+    // Random values between 1 and 6
+    const diceRoll1 = Math.floor(Math.random() * 6) + 1;
+    const diceRoll2 = Math.floor(Math.random() * 6) + 1;
 
-  const addMe=()=>{
-    setCount(x+1);
-  }
+    setDice1(diceRoll1);
+    setDice2(diceRoll2);
 
-  const subMe=()=>{
-    setCount(x-1);
-  }
+    // Message based on dice roll
+    if (diceRoll1 === diceRoll2) {
+      setMessage('You rolled a double! 🎉');
+    } else {
+      setMessage('Try again! 😅');
+    }
+  };
 
-  const multipleMe=()=>{
-    setCount(x*2)
-  }
-  const divisionMe=()=>{
-    setCount(x/2)
-  }
-  const percentageME=()=>{
-    setCount(x%2)
-  }
-  const multiDiv=()=>{
-    setCount(x*%2)
-  }
   return (
-    <> 
-
-The value of x is {x}
-
-<button onClick={()=>addMe()}>Add me </button>
-
-<button onClick={()=>subMe()}>Sub me </button>
-
-<button onClick={()=>multipleMe()}>multipleMe me </button>
-<button onClick={()=>divisionMe()}>divisionMe123</button>
-<button onClick={()=>percentageME()}>percentageME</button>
-
-    </>
+    <div className="app">
+      <h1>Dice Game</h1>
+      <div className="dice-container">
+        <div className="dice">{dice1}</div>
+        <div className="dice">{dice2}</div>
+      </div>
+      <button className="roll-btn" onClick={rollDice}>
+        Roll Dice
+      </button>
+      {message && <p className="message">{message}</p>}
+    </div>
   );
 }
 
 export default App;
-
-
